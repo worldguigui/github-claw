@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="CodeNote — 一份持续生长的编程知识笔记，涵盖 Java、Python、C++、AI、操作系统、数据库、计算机网络等核心领域。" />
   <title>CodeNote · 编程知识笔记</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
   <style>
     /* ──────────────────────────────────────────
        RESET & ROOT
@@ -27,12 +30,70 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Noto Sans SC', 'Segoe UI', system-ui, -apple-system, sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; }
+
+    /* ──────────────────────────────────────────
+       READING PROGRESS BAR
+    ────────────────────────────────────────── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 300;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--green));
+      transition: width .08s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ──────────────────────────────────────────
+       SCROLL TO TOP BUTTON
+    ────────────────────────────────────────── */
+    #scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #5b52c4);
+      color: #fff; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(124,109,240,.5);
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .3s, transform .3s, box-shadow .2s;
+      font-size: 1.1rem;
+    }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover { box-shadow: 0 8px 32px rgba(124,109,240,.75); transform: translateY(-2px); }
+
+    /* ──────────────────────────────────────────
+       SEARCH BAR
+    ────────────────────────────────────────── */
+    .search-wrap {
+      position: relative; margin-bottom: 1.8rem;
+    }
+    .search-icon {
+      position: absolute; left: 1.1rem; top: 50%;
+      transform: translateY(-50%); color: var(--muted);
+      pointer-events: none; font-size: 1rem;
+    }
+    .search-input {
+      width: 100%; padding: .72rem 1.2rem .72rem 3rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: .95rem;
+      font-family: inherit; outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124,109,240,.15);
+      background: rgba(255,255,255,.07);
+    }
+    .search-empty {
+      text-align: center; color: var(--muted);
+      padding: 2.5rem 1rem; display: none; font-size: .95rem;
+    }
+    .search-empty span { display: block; font-size: 2rem; margin-bottom: .5rem; }
 
     /* ──────────────────────────────────────────
        CANVAS PARTICLES
@@ -219,9 +280,18 @@
       padding: 1.4rem 1.2rem;
       transition: transform .25s, border-color .25s, box-shadow .25s;
       cursor: default;
+      position: relative; overflow: hidden;
     }
+    .topic-card::after {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
+      transition: left .55s ease;
+      pointer-events: none;
+    }
+    .topic-card:hover::after { left: 150%; }
     .topic-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: var(--primary);
       box-shadow: var(--glow);
     }
@@ -254,6 +324,20 @@
       font-weight: 700; font-size: 1.05rem; letter-spacing: 1px;
       color: var(--primary);
       gap: .2rem;
+      min-width: 90px;
+    }
+    .month-label small { font-size: .7rem; font-weight: 400; color: var(--muted); }
+    .month-count {
+      display: inline-block; padding: .15rem .5rem; border-radius: 20px;
+      background: rgba(124,109,240,.18); color: var(--primary);
+      font-size: .68rem; font-weight: 600; letter-spacing: .5px;
+    }
+      background: rgba(124,109,240,.1);
+      border-right: 1px solid var(--border);
+      padding: 1rem .5rem;
+      font-weight: 700; font-size: 1.05rem; letter-spacing: 1px;
+      color: var(--primary);
+      gap: .2rem;
     }
     .month-label small { font-size: .7rem; font-weight: 400; color: var(--muted); }
     .month-notes {
@@ -265,14 +349,16 @@
       padding: .28rem .75rem; border-radius: 8px;
       background: rgba(124,109,240,.1); border: 1px solid rgba(124,109,240,.2);
       font-size: .8rem; color: #c4b8ff;
-      transition: background .2s, border-color .2s;
+      transition: background .2s, border-color .2s, transform .15s;
       text-decoration: none;
     }
     .note-tag:hover {
       background: rgba(124,109,240,.25);
       border-color: var(--primary);
+      transform: translateY(-1px);
     }
     .note-tag .icon { font-size: .75rem; }
+    .note-tag[hidden] { display: none; }
 
     /* ──────────────────────────────────────────
        CHART
@@ -295,9 +381,9 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: .9rem 1.2rem;
-      transition: border-color .2s;
+      transition: border-color .2s, transform .2s;
     }
-    .log-item:hover { border-color: var(--accent); }
+    .log-item:hover { border-color: var(--accent); transform: translateX(3px); }
     .log-date {
       white-space: nowrap; font-size: .78rem;
       color: var(--muted); padding-top: .15rem; min-width: 76px;
@@ -325,6 +411,7 @@
     footer a:hover { text-decoration: underline; }
     .footer-links {
       display: flex; gap: 1.5rem; justify-content: center;
+      flex-wrap: wrap;
       margin-bottom: 1.2rem;
     }
 
@@ -350,8 +437,9 @@
     @media (max-width: 640px) {
       .nav-links .hide-sm { display: none; }
       .month-card { grid-template-columns: 70px 1fr; }
-      .month-label { font-size: .88rem; }
+      .month-label { font-size: .88rem; min-width: 70px; }
       .stats-row { gap: 1.5rem; }
+      #scroll-top { bottom: 1.2rem; right: 1.2rem; }
     }
 
     /* ──────────────────────────────────────────
@@ -364,23 +452,40 @@
     .fade-up.visible {
       opacity: 1; transform: translateY(0);
     }
+
+    /* ──────────────────────────────────────────
+       REDUCED MOTION
+    ────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .fade-up { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
 
+<!-- Reading progress bar -->
+<div id="progress-bar" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Scroll to top -->
+<button id="scroll-top" aria-label="回到顶部" title="回到顶部">↑</button>
+
 <!-- Decorative blobs -->
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
+<div class="blob blob-1" aria-hidden="true"></div>
+<div class="blob blob-2" aria-hidden="true"></div>
 
 <!-- Particle canvas -->
-<canvas id="particles"></canvas>
+<canvas id="particles" aria-hidden="true"></canvas>
 
 <!-- ──────────────────────────────────────────
      NAV
 ────────────────────────────────────────── -->
-<nav>
+<nav role="navigation" aria-label="主导航">
   <div class="nav-logo">
-    <span class="dot"></span>
+    <span class="dot" aria-hidden="true"></span>
     CodeNote
   </div>
   <div class="nav-links">
@@ -388,7 +493,7 @@
     <a href="#timeline" class="hide-sm">内容</a>
     <a href="#growth" class="hide-sm">趋势</a>
     <a href="#updates" class="hide-sm">更新</a>
-    <a href="https://github.com/worldguigui/codenote" target="_blank" class="btn-github">
+    <a href="https://github.com/worldguigui/codenote" target="_blank" rel="noopener" class="btn-github">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
       </svg>
@@ -400,6 +505,7 @@
 <!-- ──────────────────────────────────────────
      HERO
 ────────────────────────────────────────── -->
+<main>
 <div class="hero">
   <div class="hero-badge">
     📖 开源编程知识笔记
@@ -407,7 +513,7 @@
   <h1>CodeNote</h1>
   <p>一份持续生长的编程知识库，涵盖 Java · Python · C++ · AI · 操作系统 · 数据库 · 计算机网络等核心领域。每月更新，与你共同进步。</p>
   <div class="hero-actions">
-    <a href="https://github.com/worldguigui/codenote" target="_blank" class="btn-primary">⭐ Star 仓库</a>
+    <a href="https://github.com/worldguigui/codenote" target="_blank" rel="noopener" class="btn-primary">⭐ Star 仓库</a>
     <a href="#timeline" class="btn-outline">浏览笔记 ↓</a>
   </div>
   <div class="stats-row">
@@ -428,7 +534,7 @@
       <div class="stat-label">% 开源免费</div>
     </div>
   </div>
-  <div class="scroll-hint">
+  <div class="scroll-hint" aria-hidden="true">
     SCROLL
     <div class="chevron"></div>
   </div>
@@ -498,69 +604,81 @@
     <div class="divider"></div>
     <p class="section-sub">点击笔记标签直接跳转 GitHub 查看原文。</p>
   </div>
+  <div class="search-wrap fade-up">
+    <span class="search-icon" aria-hidden="true">🔍</span>
+    <input
+      class="search-input"
+      type="search"
+      id="note-search"
+      placeholder="搜索笔记标题…"
+      autocomplete="off"
+      aria-label="搜索笔记"
+    />
+  </div>
+  <p class="search-empty" id="search-empty"><span>📭</span>没有找到匹配的笔记</p>
   <div class="timeline fade-up">
 
-    <div class="month-card">
-      <div class="month-label">25.10<small>2025年10月</small></div>
+    <div class="month-card" data-month="25.10">
+      <div class="month-label">25.10<small>2025年10月</small><span class="month-count">3篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/antlr4%E5%9F%BA%E7%A1%80.md" target="_blank"><span class="icon">📄</span>ANTLR4 基础</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/antlr%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md" target="_blank"><span class="icon">📄</span>ANTLR 部署与快速入门</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.md" target="_blank"><span class="icon">📄</span>Markdown 基本语法</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/antlr4%E5%9F%BA%E7%A1%80.md" target="_blank" rel="noopener"><span class="icon">📄</span>ANTLR4 基础</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/antlr%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md" target="_blank" rel="noopener"><span class="icon">📄</span>ANTLR 部署与快速入门</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.10/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.md" target="_blank" rel="noopener"><span class="icon">📄</span>Markdown 基本语法</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">25.11<small>2025年11月</small></div>
+    <div class="month-card" data-month="25.11">
+      <div class="month-label">25.11<small>2025年11月</small><span class="month-count">2篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.11/the%20lambda%20calculus.md" target="_blank"><span class="icon">📄</span>The Lambda Calculus</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.11/%E5%B8%B8%E7%94%A8%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B.md" target="_blank"><span class="icon">📄</span>常用开源项目简介</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.11/the%20lambda%20calculus.md" target="_blank" rel="noopener"><span class="icon">📄</span>The Lambda Calculus</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.11/%E5%B8%B8%E7%94%A8%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B.md" target="_blank" rel="noopener"><span class="icon">📄</span>常用开源项目简介</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">25.12<small>2025年12月</small></div>
+    <div class="month-card" data-month="25.12">
+      <div class="month-label">25.12<small>2025年12月</small><span class="month-count">3篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/antlr4%E9%AB%98%E7%BA%A7-%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%8A%A8%E4%BD%9C" target="_blank"><span class="icon">📄</span>ANTLR4 高级·属性与动作</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA.md" target="_blank"><span class="icon">📄</span>人工智能导论</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.md" target="_blank"><span class="icon">📄</span>操作系统原理</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/antlr4%E9%AB%98%E7%BA%A7-%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%8A%A8%E4%BD%9C" target="_blank" rel="noopener"><span class="icon">📄</span>ANTLR4 高级·属性与动作</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA.md" target="_blank" rel="noopener"><span class="icon">📄</span>人工智能导论</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/25.12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.md" target="_blank" rel="noopener"><span class="icon">📄</span>操作系统原理</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">26.01<small>2026年1月</small></div>
+    <div class="month-card" data-month="26.01">
+      <div class="month-label">26.01<small>2026年1月</small><span class="month-count">5篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/BitSet%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md" target="_blank"><span class="icon">📄</span>BitSet 源码解析</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/LangChain4j%E5%88%9D%E7%BA%A7%E5%BC%80%E5%8F%91.md" target="_blank"><span class="icon">📄</span>LangChain4j 初级开发</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/Python%E4%B8%8EAnaconda%E7%9A%84%E5%AE%89%E8%A3%85.md" target="_blank"><span class="icon">📄</span>Python 与 Anaconda 安装</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86.md" target="_blank"><span class="icon">📄</span>数据库原理</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md" target="_blank"><span class="icon">📄</span>计算机网络</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/BitSet%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md" target="_blank" rel="noopener"><span class="icon">📄</span>BitSet 源码解析</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/LangChain4j%E5%88%9D%E7%BA%A7%E5%BC%80%E5%8F%91.md" target="_blank" rel="noopener"><span class="icon">📄</span>LangChain4j 初级开发</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/Python%E4%B8%8EAnaconda%E7%9A%84%E5%AE%89%E8%A3%85.md" target="_blank" rel="noopener"><span class="icon">📄</span>Python 与 Anaconda 安装</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86.md" target="_blank" rel="noopener"><span class="icon">📄</span>数据库原理</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.1/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md" target="_blank" rel="noopener"><span class="icon">📄</span>计算机网络</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">26.02<small>2026年2月</small></div>
+    <div class="month-card" data-month="26.02">
+      <div class="month-label">26.02<small>2026年2月</small><span class="month-count">2篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.2/Python%E5%9F%BA%E7%A1%80.md" target="_blank"><span class="icon">📄</span>Python 基础</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.2/Redis.md" target="_blank"><span class="icon">📄</span>Redis</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.2/Python%E5%9F%BA%E7%A1%80.md" target="_blank" rel="noopener"><span class="icon">📄</span>Python 基础</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.2/Redis.md" target="_blank" rel="noopener"><span class="icon">📄</span>Redis</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">26.03<small>2026年3月</small></div>
+    <div class="month-card" data-month="26.03">
+      <div class="month-label">26.03<small>2026年3月</small><span class="month-count">6篇</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/C%2B%2B%E5%9F%BA%E7%A1%80.md" target="_blank"><span class="icon">📄</span>C++ 基础</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/Java%E5%9F%BA%E7%A1%80-%E5%8C%85%E8%A3%85%E7%B1%BB.md" target="_blank"><span class="icon">📄</span>Java 基础·包装类</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/Java%E5%9F%BA%E7%A1%80-%E5%AD%97%E7%AC%A6%E4%B8%B2.md" target="_blank"><span class="icon">📄</span>Java 基础·字符串</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E4%B8%89%E7%BB%B4%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C.md" target="_blank"><span class="icon">📄</span>三维模型制作</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%B1%BB%E7%BB%BC%E5%90%88%E6%80%A7%E8%AF%BE%E8%AE%BE.md" target="_blank"><span class="icon">📄</span>计算机硬件综合课设</a>
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.md" target="_blank"><span class="icon">📄</span>面试总结</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/C%2B%2B%E5%9F%BA%E7%A1%80.md" target="_blank" rel="noopener"><span class="icon">📄</span>C++ 基础</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/Java%E5%9F%BA%E7%A1%80-%E5%8C%85%E8%A3%85%E7%B1%BB.md" target="_blank" rel="noopener"><span class="icon">📄</span>Java 基础·包装类</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/Java%E5%9F%BA%E7%A1%80-%E5%AD%97%E7%AC%A6%E4%B8%B2.md" target="_blank" rel="noopener"><span class="icon">📄</span>Java 基础·字符串</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E4%B8%89%E7%BB%B4%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C.md" target="_blank" rel="noopener"><span class="icon">📄</span>三维模型制作</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%B1%BB%E7%BB%BC%E5%90%88%E6%80%A7%E8%AF%BE%E8%AE%BE.md" target="_blank" rel="noopener"><span class="icon">📄</span>计算机硬件综合课设</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.3/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93.md" target="_blank" rel="noopener"><span class="icon">📄</span>面试总结</a>
       </div>
     </div>
 
-    <div class="month-card">
-      <div class="month-label">26.04<small>2026年4月</small></div>
+    <div class="month-card" data-month="26.04">
+      <div class="month-label">26.04<small>2026年4月</small><span class="month-count">1篇+</span></div>
       <div class="month-notes">
-        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.4/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md" target="_blank"><span class="icon">📄</span>Java 基础·面向对象编程</a>
+        <a class="note-tag" href="https://github.com/worldguigui/codenote/blob/main/26.4/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B.md" target="_blank" rel="noopener"><span class="icon">📄</span>Java 基础·面向对象编程</a>
         <span class="note-tag" style="border-style:dashed;opacity:.6">更多笔记持续添加中…</span>
       </div>
     </div>
@@ -648,28 +766,79 @@
   <div class="fade-up">
     <h2 class="section-title" style="margin-bottom:.8rem">喜欢这个项目？</h2>
     <p style="color:var(--muted);margin-bottom:1.8rem">点个 ⭐ Star 是对持续创作最大的鼓励</p>
-    <a href="https://github.com/worldguigui/codenote" target="_blank" class="btn-primary" style="font-size:1rem; padding:.8rem 2.2rem;">
+    <a href="https://github.com/worldguigui/codenote" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem; padding:.8rem 2.2rem;">
       ⭐ 前往 GitHub Star
     </a>
   </div>
 </section>
+</main>
 
 <!-- ──────────────────────────────────────────
      FOOTER
 ────────────────────────────────────────── -->
 <footer>
   <div class="footer-links">
-    <a href="https://github.com/worldguigui/codenote" target="_blank">📦 codenote 仓库</a>
-    <a href="https://github.com/worldguigui" target="_blank">👤 @worldguigui</a>
+    <a href="https://github.com/worldguigui/codenote" target="_blank" rel="noopener">📦 codenote 仓库</a>
+    <a href="https://github.com/worldguigui" target="_blank" rel="noopener">👤 @worldguigui</a>
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 回到顶部</a>
   </div>
-  <p>Built with ❤️ by <a href="https://github.com/worldguigui" target="_blank">worldguigui</a> · MIT License</p>
+  <p>Built with ❤️ by <a href="https://github.com/worldguigui" target="_blank" rel="noopener">worldguigui</a> · MIT License</p>
 </footer>
 
 <!-- ──────────────────────────────────────────
      SCRIPTS
 ────────────────────────────────────────── -->
 <script>
+/* ── Reading progress bar ── */
+(function () {
+  const bar = document.getElementById('progress-bar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', Math.round(pct));
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+})();
+
+/* ── Scroll to top button ── */
+(function () {
+  const btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+/* ── Note search / filter ── */
+(function () {
+  const input = document.getElementById('note-search');
+  const empty = document.getElementById('search-empty');
+  if (!input) return;
+
+  input.addEventListener('input', function () {
+    const q = this.value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.month-card');
+    let totalVisible = 0;
+
+    cards.forEach(card => {
+      const tags = card.querySelectorAll('.note-tag');
+      let cardVisible = 0;
+      tags.forEach(tag => {
+        const text = tag.textContent.toLowerCase();
+        const match = !q || text.includes(q);
+        tag.hidden = !match;
+        if (match) cardVisible++;
+      });
+      card.style.display = cardVisible > 0 ? '' : 'none';
+      totalVisible += cardVisible;
+    });
+
+    empty.style.display = totalVisible === 0 && q ? 'block' : 'none';
+  });
+})();
+
 /* ── Particle background ── */
 (function () {
   const canvas = document.getElementById('particles');

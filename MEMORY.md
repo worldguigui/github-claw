@@ -25,6 +25,7 @@
 
 - 2026-04-27：初始化仓库，建立 AGENTS.md / MEMORY.md / memory/ 三层结构
 - 2026-04-27：建立 `.agents/skills/` 技能目录体系，约定技能发现/安装/使用机制；新增示例技能 `web-fetch`
+- 2026-04-27：安装 `ui-ux-pro-max` 技能（10 条黄金准则），并用其对 CodeNote 导航官网（index.html）进行深度 UI/UX 优化
 
 ## 持续跟踪目标
 

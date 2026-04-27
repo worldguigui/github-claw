@@ -19,11 +19,12 @@
 
 ## 技术约定
 
-_（暂无，随项目推进补充）_
+- 项目级技能保存在 `.agents/skills/`，每个技能独立目录，内含 `README.md` 说明；详见 `.agents/skills/README.md`
 
 ## 重要决策
 
 - 2026-04-27：初始化仓库，建立 AGENTS.md / MEMORY.md / memory/ 三层结构
+- 2026-04-27：建立 `.agents/skills/` 技能目录体系，约定技能发现/安装/使用机制；新增示例技能 `web-fetch`
 
 ## 持续跟踪目标
 

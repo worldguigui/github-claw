@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" font-family="'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#F0E8FF"/>
+    </linearGradient>
+    <filter id="sh2">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#C8B4FF" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="960" height="640" fill="url(#bg2)"/>
+  <!-- 标题 -->
+  <text x="480" y="56" text-anchor="middle" font-size="30" font-weight="800" fill="#7c6df0">多维度技术知识覆盖</text>
+  <text x="480" y="82" text-anchor="middle" font-size="14" fill="#9B8EC4">Chiikawa 带你探索 8 大编程领域 ✦</text>
+  <!-- 装饰线 -->
+  <rect x="370" y="92" width="220" height="3" rx="2" fill="url(#bg2)"/>
+  <rect x="370" y="92" width="220" height="3" rx="2" fill="#7c6df0" opacity="0.4"/>
+
+
+  <g filter="url(#sh2)">
+    <rect x="40" y="115" width="210" height="230" rx="20" 
+          fill="white" stroke="#7c6df0" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="40" y="115" width="210" height="8" rx="4" fill="#7c6df0" opacity="0.6"/>
+<ellipse cx="115.0" cy="197.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="100.6" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="100.6" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="129.4" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="129.4" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="115.0" cy="190" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="108.52" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="121.48" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="110.68" cy="184.96" r="1.7999999999999998" fill="white"/>
+<circle cx="123.64" cy="184.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="102.04" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="127.96" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M110.68 197.2 Q115.0 201.52 119.32 197.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="93.4" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 93.4 205.84)"/>
+<ellipse cx="136.6" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 136.6 205.84)"/>
+<ellipse cx="106.36" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="123.64" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+
+  <text x="167" y="165" text-anchor="middle" font-size="28">☕</text>
+  <text x="145" y="275" text-anchor="middle" font-size="16" font-weight="700" fill="#7c6df0">Java</text>
+  <text x="145" y="295" text-anchor="middle" font-size="11.5" fill="#666">包装类 · 字符串</text>
+  <text x="145" y="313" text-anchor="middle" font-size="11.5" fill="#666">面向对象 · BitSet</text>
+
+  <g filter="url(#sh2)">
+    <rect x="270" y="115" width="210" height="230" rx="20" 
+          fill="white" stroke="#4ade80" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="270" y="115" width="210" height="8" rx="4" fill="#4ade80" opacity="0.6"/>
+<ellipse cx="345.0" cy="197.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="330.6" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="330.6" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="359.4" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="359.4" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="345.0" cy="190" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="338.52" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="351.48" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="340.68" cy="184.96" r="1.7999999999999998" fill="white"/>
+<circle cx="353.64" cy="184.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="332.04" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="357.96" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M340.68 197.2 Q345.0 201.52 349.32 197.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="323.4" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 323.4 205.84)"/>
+<ellipse cx="366.6" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 366.6 205.84)"/>
+<ellipse cx="336.36" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="353.64" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<path d="M339.24 171.28 Q345.0 175.6 350.76 171.28" stroke="#7FB3FF" stroke-width="2.88" fill="none" stroke-linecap="round"/>
+
+  <text x="397" y="165" text-anchor="middle" font-size="28">🐍</text>
+  <text x="375" y="275" text-anchor="middle" font-size="16" font-weight="700" fill="#4ade80">Python</text>
+  <text x="375" y="295" text-anchor="middle" font-size="11.5" fill="#666">基础语法</text>
+  <text x="375" y="313" text-anchor="middle" font-size="11.5" fill="#666">Anaconda 环境</text>
+
+  <g filter="url(#sh2)">
+    <rect x="500" y="115" width="210" height="230" rx="20" 
+          fill="white" stroke="#22d3ee" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="500" y="115" width="210" height="8" rx="4" fill="#22d3ee" opacity="0.6"/>
+<ellipse cx="565.9" cy="161.4" rx="5.8500000000000005" ry="15.600000000000001" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="565.9" cy="161.4" rx="3.25" ry="11.700000000000001" fill="#FFB7C5"/>
+<ellipse cx="584.1" cy="161.4" rx="5.8500000000000005" ry="15.600000000000001" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="584.1" cy="161.4" rx="3.25" ry="11.700000000000001" fill="#FFB7C5"/>
+<ellipse cx="575.0" cy="196.5" rx="18.2" ry="20.8" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<circle cx="575.0" cy="190" r="16.900000000000002" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="569.15" cy="187.4" rx="4.55" ry="5.2" fill="#1E1040"/>
+<ellipse cx="580.85" cy="187.4" rx="4.55" ry="5.2" fill="#1E1040"/>
+<circle cx="571.1" cy="185.45000000000002" r="1.625" fill="white"/>
+<circle cx="582.8" cy="185.45000000000002" r="1.625" fill="white"/>
+<ellipse cx="563.3" cy="193.9" rx="5.8500000000000005" ry="3.25" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="586.7" cy="193.9" rx="5.8500000000000005" ry="3.25" fill="#FFB7C5" opacity="0.65"/>
+<path d="M571.1 196.5 Q575.0 200.4 578.9 196.5" stroke="#1E1040" stroke-width="0.9750000000000001" fill="none" stroke-linecap="round"/>
+<ellipse cx="555.5" cy="204.3" rx="5.8500000000000005" ry="11.05" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001" transform="rotate(-25 555.5 204.3)"/>
+<ellipse cx="594.5" cy="204.3" rx="5.8500000000000005" ry="11.05" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001" transform="rotate(25 594.5 204.3)"/>
+<ellipse cx="567.2" cy="218.6" rx="6.5" ry="5.2" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="582.8" cy="218.6" rx="6.5" ry="5.2" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+
+  <text x="627" y="165" text-anchor="middle" font-size="28">⚙️</text>
+  <text x="605" y="275" text-anchor="middle" font-size="16" font-weight="700" fill="#22d3ee">C++</text>
+  <text x="605" y="295" text-anchor="middle" font-size="11.5" fill="#666">基础语法</text>
+  <text x="605" y="313" text-anchor="middle" font-size="11.5" fill="#666">竞赛技巧</text>
+
+  <g filter="url(#sh2)">
+    <rect x="730" y="115" width="210" height="230" rx="20" 
+          fill="white" stroke="#FFB7C5" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="730" y="115" width="210" height="8" rx="4" fill="#FFB7C5" opacity="0.6"/>
+<ellipse cx="805.0" cy="197.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="790.6" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="790.6" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="819.4" cy="169.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="819.4" cy="169.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="805.0" cy="190" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="798.52" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="811.48" cy="187.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="800.68" cy="184.96" r="1.7999999999999998" fill="white"/>
+<circle cx="813.64" cy="184.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="792.04" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="817.96" cy="194.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M800.68 197.2 Q805.0 201.52 809.32 197.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="783.4" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 783.4 205.84)"/>
+<ellipse cx="826.6" cy="205.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 826.6 205.84)"/>
+<ellipse cx="796.36" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="813.64" cy="221.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+
+  <text x="857" y="165" text-anchor="middle" font-size="28">🤖</text>
+  <text x="835" y="275" text-anchor="middle" font-size="16" font-weight="700" fill="#FFB7C5">AI / LLM</text>
+  <text x="835" y="295" text-anchor="middle" font-size="11.5" fill="#666">人工智能导论</text>
+  <text x="835" y="313" text-anchor="middle" font-size="11.5" fill="#666">LangChain4j</text>
+
+  <g filter="url(#sh2)">
+    <rect x="40" y="365" width="210" height="230" rx="20" 
+          fill="white" stroke="#FFD700" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="40" y="365" width="210" height="8" rx="4" fill="#FFD700" opacity="0.6"/>
+<ellipse cx="115.0" cy="447.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="100.6" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="100.6" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="129.4" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="129.4" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="115.0" cy="440" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="108.52" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="121.48" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="110.68" cy="434.96" r="1.7999999999999998" fill="white"/>
+<circle cx="123.64" cy="434.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="102.04" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="127.96" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M110.68 447.2 Q115.0 451.52 119.32 447.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="93.4" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 93.4 455.84)"/>
+<ellipse cx="136.6" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 136.6 455.84)"/>
+<ellipse cx="106.36" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="123.64" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<path d="M109.24 421.28 Q115.0 425.6 120.76 421.28" stroke="#7FB3FF" stroke-width="2.88" fill="none" stroke-linecap="round"/>
+
+  <text x="167" y="415" text-anchor="middle" font-size="28">🖥️</text>
+  <text x="145" y="525" text-anchor="middle" font-size="16" font-weight="700" fill="#FFD700">操作系统</text>
+  <text x="145" y="545" text-anchor="middle" font-size="11.5" fill="#666">操作系统原理</text>
+  <text x="145" y="563" text-anchor="middle" font-size="11.5" fill="#666">硬件综合课设</text>
+
+  <g filter="url(#sh2)">
+    <rect x="270" y="365" width="210" height="230" rx="20" 
+          fill="white" stroke="#B9A0FF" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="270" y="365" width="210" height="8" rx="4" fill="#B9A0FF" opacity="0.6"/>
+<ellipse cx="335.9" cy="411.4" rx="5.8500000000000005" ry="15.600000000000001" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="335.9" cy="411.4" rx="3.25" ry="11.700000000000001" fill="#FFB7C5"/>
+<ellipse cx="354.1" cy="411.4" rx="5.8500000000000005" ry="15.600000000000001" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="354.1" cy="411.4" rx="3.25" ry="11.700000000000001" fill="#FFB7C5"/>
+<ellipse cx="345.0" cy="446.5" rx="18.2" ry="20.8" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<circle cx="345.0" cy="440" r="16.900000000000002" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="339.15" cy="437.4" rx="4.55" ry="5.2" fill="#1E1040"/>
+<ellipse cx="350.85" cy="437.4" rx="4.55" ry="5.2" fill="#1E1040"/>
+<circle cx="341.1" cy="435.45" r="1.625" fill="white"/>
+<circle cx="352.8" cy="435.45" r="1.625" fill="white"/>
+<ellipse cx="333.3" cy="443.9" rx="5.8500000000000005" ry="3.25" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="356.7" cy="443.9" rx="5.8500000000000005" ry="3.25" fill="#FFB7C5" opacity="0.65"/>
+<path d="M341.1 446.5 Q345.0 450.4 348.9 446.5" stroke="#1E1040" stroke-width="0.9750000000000001" fill="none" stroke-linecap="round"/>
+<ellipse cx="325.5" cy="454.3" rx="5.8500000000000005" ry="11.05" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001" transform="rotate(-25 325.5 454.3)"/>
+<ellipse cx="364.5" cy="454.3" rx="5.8500000000000005" ry="11.05" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001" transform="rotate(25 364.5 454.3)"/>
+<ellipse cx="337.2" cy="468.6" rx="6.5" ry="5.2" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+<ellipse cx="352.8" cy="468.6" rx="6.5" ry="5.2" fill="white" stroke="#D4C5FF" stroke-width="0.9750000000000001"/>
+
+  <text x="397" y="415" text-anchor="middle" font-size="28">🗄️</text>
+  <text x="375" y="525" text-anchor="middle" font-size="16" font-weight="700" fill="#B9A0FF">数据库</text>
+  <text x="375" y="545" text-anchor="middle" font-size="11.5" fill="#666">数据库原理</text>
+  <text x="375" y="563" text-anchor="middle" font-size="11.5" fill="#666">Redis</text>
+
+  <g filter="url(#sh2)">
+    <rect x="500" y="365" width="210" height="230" rx="20" 
+          fill="white" stroke="#22d3ee" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="500" y="365" width="210" height="8" rx="4" fill="#22d3ee" opacity="0.6"/>
+<ellipse cx="575.0" cy="447.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="560.6" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="560.6" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="589.4" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="589.4" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="575.0" cy="440" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="568.52" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="581.48" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="570.68" cy="434.96" r="1.7999999999999998" fill="white"/>
+<circle cx="583.64" cy="434.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="562.04" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="587.96" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M570.68 447.2 Q575.0 451.52 579.32 447.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="553.4" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 553.4 455.84)"/>
+<ellipse cx="596.6" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 596.6 455.84)"/>
+<ellipse cx="566.36" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="583.64" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+
+  <text x="627" y="415" text-anchor="middle" font-size="28">🌐</text>
+  <text x="605" y="525" text-anchor="middle" font-size="16" font-weight="700" fill="#22d3ee">计算机网络</text>
+  <text x="605" y="545" text-anchor="middle" font-size="11.5" fill="#666">网络基础</text>
+  <text x="605" y="563" text-anchor="middle" font-size="11.5" fill="#666">协议栈</text>
+
+  <g filter="url(#sh2)">
+    <rect x="730" y="365" width="210" height="230" rx="20" 
+          fill="white" stroke="#7c6df0" stroke-width="1.5" opacity="0.95"/>
+  </g>
+  <!-- 顶部彩色条 -->
+  <rect x="730" y="365" width="210" height="8" rx="4" fill="#7c6df0" opacity="0.6"/>
+<ellipse cx="805.0" cy="447.2" rx="20.16" ry="23.04" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="790.6" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="790.6" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<ellipse cx="819.4" cy="419.84" rx="7.199999999999999" ry="9.36" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="819.4" cy="419.84" rx="4.32" ry="5.76" fill="#FFB7C5"/>
+<circle cx="805.0" cy="440" r="18.72" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="798.52" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<ellipse cx="811.48" cy="437.12" rx="5.04" ry="5.76" fill="#1E1040"/>
+<circle cx="800.68" cy="434.96" r="1.7999999999999998" fill="white"/>
+<circle cx="813.64" cy="434.96" r="1.7999999999999998" fill="white"/>
+<ellipse cx="792.04" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<ellipse cx="817.96" cy="444.32" rx="6.4799999999999995" ry="3.5999999999999996" fill="#FFB7C5" opacity="0.65"/>
+<path d="M800.68 447.2 Q805.0 451.52 809.32 447.2" stroke="#1E1040" stroke-width="1.08" fill="none" stroke-linecap="round"/>
+<ellipse cx="783.4" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(-25 783.4 455.84)"/>
+<ellipse cx="826.6" cy="455.84" rx="6.4799999999999995" ry="12.24" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08" transform="rotate(25 826.6 455.84)"/>
+<ellipse cx="796.36" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<ellipse cx="813.64" cy="471.68" rx="7.199999999999999" ry="5.76" fill="#FFFFFF" stroke="#D4C5FF" stroke-width="1.08"/>
+<path d="M799.24 421.28 Q805.0 425.6 810.76 421.28" stroke="#7FB3FF" stroke-width="2.88" fill="none" stroke-linecap="round"/>
+
+  <text x="857" y="415" text-anchor="middle" font-size="28">🔤</text>
+  <text x="835" y="525" text-anchor="middle" font-size="16" font-weight="700" fill="#7c6df0">编译原理</text>
+  <text x="835" y="545" text-anchor="middle" font-size="11.5" fill="#666">ANTLR4</text>
+  <text x="835" y="563" text-anchor="middle" font-size="11.5" fill="#666">Lambda Calculus</text>
+
+  <!-- 底部小装饰 -->
+  <polygon points="50.0,610.0 47.6,616.8 40.5,616.9 46.2,621.2 44.1,628.1 50.0,624.0 55.9,628.1 53.8,621.2 59.5,616.9 52.4,616.8" fill="#FFD700" opacity="0.85"/>
+  <polygon points="910.0,610.0 907.6,616.8 900.5,616.9 906.2,621.2 904.1,628.1 910.0,624.0 915.9,628.1 913.8,621.2 919.5,616.9 912.4,616.8" fill="#FFB7C5" opacity="0.85"/>
+  <polygon points="480.0,617.0 478.1,622.4 472.4,622.5 477.0,626.0 475.3,631.5 480.0,628.2 484.7,631.5 483.0,626.0 487.6,622.5 481.9,622.4" fill="#7c6df0" opacity="0.85"/>
+  <g>
+  <line x1="920" y1="101" x2="920" y2="119" stroke="#7c6df0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="911" y1="110" x2="929" y2="110" stroke="#7c6df0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="913.7" y1="103.7" x2="926.3" y2="116.3" stroke="#7c6df0" stroke-width="1" stroke-linecap="round"/>
+  <line x1="926.3" y1="103.7" x2="913.7" y2="116.3" stroke="#7c6df0" stroke-width="1" stroke-linecap="round"/>
+</g>
+  <g>
+  <line x1="40" y1="101" x2="40" y2="119" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="31" y1="110" x2="49" y2="110" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="33.7" y1="103.7" x2="46.3" y2="116.3" stroke="#22d3ee" stroke-width="1" stroke-linecap="round"/>
+  <line x1="46.3" y1="103.7" x2="33.7" y2="116.3" stroke="#22d3ee" stroke-width="1" stroke-linecap="round"/>
+</g>
+  <text x="480" y="630" text-anchor="middle" font-size="13" fill="#9B8EC4" opacity="0.8">🌸 持续生长 · 每月更新 🌸</text>
+  <rect x="8" y="8" width="944" height="624" rx="18" fill="none" stroke="#E8D5FF" stroke-width="1.5" opacity="0.7"/>
+</svg>

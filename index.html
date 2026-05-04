@@ -3,8 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CodeNote — 一份持续生长的编程知识笔记，涵盖 Java、Python、C++、AI、操作系统、数据库、计算机网络等核心领域。" />
-  <title>CodeNote · 编程知识笔记</title>
+
+  <!-- Primary SEO -->
+  <title>CodeNote · 编程知识笔记 | Java · Python · C++ · AI · 操作系统</title>
+  <meta name="description" content="CodeNote — 持续生长的开源编程知识库，已收录 22 篇笔记，每月更新。涵盖 Java、Python、C++、AI/LLM、操作系统、数据库、计算机网络等核心领域，完全免费。" />
+  <meta name="keywords" content="编程笔记,Java笔记,Python笔记,C++笔记,人工智能,LLM,操作系统,数据库,计算机网络,编译原理,ANTLR4,LangChain4j,开源笔记,codenote" />
+  <meta name="author" content="worldguigui" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://worldguigui.github.io/github-claw/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://worldguigui.github.io/github-claw/" />
+  <meta property="og:site_name" content="CodeNote" />
+  <meta property="og:title" content="CodeNote · 编程知识笔记 | Java · Python · C++ · AI" />
+  <meta property="og:description" content="持续生长的开源编程知识库，已收录 22 篇笔记，每月更新。涵盖 Java、Python、C++、AI/LLM、操作系统、数据库、计算机网络等领域，完全免费。" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CodeNote · 编程知识笔记" />
+  <meta name="twitter:description" content="持续生长的开源编程知识库，22 篇笔记每月更新。Java · Python · C++ · AI · 操作系统 · 数据库，完全免费开源。" />
+  <meta name="twitter:creator" content="@worldguigui" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CodeNote",
+    "alternateName": "编程知识笔记",
+    "description": "持续生长的开源编程知识库，涵盖 Java、Python、C++、AI/LLM、操作系统、数据库、计算机网络、编译原理等核心领域。",
+    "url": "https://worldguigui.github.io/github-claw/",
+    "inLanguage": "zh-CN",
+    "author": {
+      "@type": "Person",
+      "name": "worldguigui",
+      "url": "https://github.com/worldguigui"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://worldguigui.github.io/github-claw/#timeline"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -118,6 +168,7 @@
     .nav-logo {
       display: flex; align-items: center; gap: .55rem;
       font-size: 1.15rem; font-weight: 700; letter-spacing: -.5px;
+      color: var(--text);
     }
     .nav-logo span.dot {
       display: inline-block; width: 9px; height: 9px;
@@ -484,10 +535,10 @@
      NAV
 ────────────────────────────────────────── -->
 <nav role="navigation" aria-label="主导航">
-  <div class="nav-logo">
+  <a href="/" class="nav-logo" aria-label="CodeNote 首页">
     <span class="dot" aria-hidden="true"></span>
     CodeNote
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#topics" class="hide-sm">主题</a>
     <a href="#timeline" class="hide-sm">内容</a>
@@ -543,7 +594,7 @@
 <!-- ──────────────────────────────────────────
      TOPICS
 ────────────────────────────────────────── -->
-<section id="topics">
+<section id="topics" aria-label="涵盖领域">
   <div class="fade-up">
     <span class="section-label">涵盖领域</span>
     <h2 class="section-title">多维度知识覆盖</h2>
@@ -597,7 +648,7 @@
 <!-- ──────────────────────────────────────────
      TIMELINE
 ────────────────────────────────────────── -->
-<section id="timeline">
+<section id="timeline" aria-label="按月索引全部笔记">
   <div class="fade-up">
     <span class="section-label">内容导航</span>
     <h2 class="section-title">按月索引全部笔记</h2>
@@ -689,7 +740,7 @@
 <!-- ──────────────────────────────────────────
      GROWTH CHART
 ────────────────────────────────────────── -->
-<section id="growth">
+<section id="growth" aria-label="笔记增长趋势">
   <div class="fade-up">
     <span class="section-label">增长趋势</span>
     <h2 class="section-title">笔记增长数据</h2>
@@ -704,7 +755,7 @@
 <!-- ──────────────────────────────────────────
      UPDATE LOG
 ────────────────────────────────────────── -->
-<section id="updates">
+<section id="updates" aria-label="最近更新日志">
   <div class="fade-up">
     <span class="section-label">更新日志</span>
     <h2 class="section-title">最近更新</h2>
@@ -713,47 +764,47 @@
   </div>
   <div class="log-list fade-up">
     <div class="log-item">
-      <div class="log-date">2026-04-03</div>
+      <time class="log-date" datetime="2026-04-03">2026-04-03</time>
       <div class="log-msg"><span class="log-tag tag-update">更新</span>Java 基础·面向对象编程（完整版）</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-27</div>
+      <time class="log-date" datetime="2026-03-27">2026-03-27</time>
       <div class="log-msg"><span class="log-tag tag-update">更新</span>Java 基础·字符串 补充内容</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-26</div>
+      <time class="log-date" datetime="2026-03-26">2026-03-26</time>
       <div class="log-msg"><span class="log-tag tag-update">更新</span>Java 基础·包装类 内容完善</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-25</div>
+      <time class="log-date" datetime="2026-03-25">2026-03-25</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>Java 基础·包装类 &amp; 面向对象概念</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-24</div>
+      <time class="log-date" datetime="2026-03-24">2026-03-24</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>Java 基础·字符串</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-23</div>
+      <time class="log-date" datetime="2026-03-23">2026-03-23</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>面试总结</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-03-20</div>
+      <time class="log-date" datetime="2026-03-20">2026-03-20</time>
       <div class="log-msg"><span class="log-tag tag-update">更新</span>C++ 竞赛 I/O 优化技巧（input() for IOI）</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2026-01-xx</div>
+      <time class="log-date" datetime="2026-01">2026-01</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>LangChain4j 初级开发 · 数据库原理 · 计算机网络 · BitSet 源码解析</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2025-12-xx</div>
+      <time class="log-date" datetime="2025-12">2025-12</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>人工智能导论 · 操作系统原理 · ANTLR4 高级</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2025-11-xx</div>
+      <time class="log-date" datetime="2025-11">2025-11</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>Lambda Calculus · 常用开源项目简介</div>
     </div>
     <div class="log-item">
-      <div class="log-date">2025-10-xx</div>
+      <time class="log-date" datetime="2025-10">2025-10</time>
       <div class="log-msg"><span class="log-tag tag-new">新增</span>🎉 项目启动 — ANTLR4 基础 · 快速入门 · Markdown 语法</div>
     </div>
   </div>

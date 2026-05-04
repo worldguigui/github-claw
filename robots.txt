@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://worldguigui.github.io/github-claw/sitemap.xml

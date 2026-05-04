@@ -1,0 +1,62 @@
+name: AI 日报 · 每日 AI 科技热点推送
+
+on:
+  schedule:
+    # 北京时间 13:00 = UTC 05:00，每天触发
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '仅打印，不创建 Issue（true/false）'
+        required: false
+        default: 'false'
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  digest:
+    name: 收集并推送 AI 热点
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ensure "ai-digest" label exists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "ai-digest" \
+            --description "AI 科技热点日报" \
+            --color "0075ca" \
+            --repo "$GITHUB_REPOSITORY" \
+            2>/dev/null || echo "Label already exists, skipping."
+
+      - name: Fetch AI news and create Issue
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/scripts/fetch_ai_news.py
+
+      - name: Dry-run — print content only
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: 'true'
+        run: |
+          python - <<'EOF'
+          import os, sys
+          sys.path.insert(0, ".github/scripts")
+          # Monkey-patch create_issue to only print
+          import fetch_ai_news as m
+          m.create_issue = lambda title, body: print(f"=== DRY RUN ===\nTitle: {title}\n\n{body}")
+          m.main()
+          EOF

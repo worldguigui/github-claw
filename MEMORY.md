@@ -26,6 +26,7 @@
 - 2026-04-27：初始化仓库，建立 AGENTS.md / MEMORY.md / memory/ 三层结构
 - 2026-04-27：建立 `.agents/skills/` 技能目录体系，约定技能发现/安装/使用机制；新增示例技能 `web-fetch`
 - 2026-04-27：安装 `ui-ux-pro-max` 技能（10 条黄金准则），并用其对 CodeNote 导航官网（index.html）进行深度 UI/UX 优化
+- 2026-05-04：新增定时 AI 日报工作流 `.github/workflows/ai-daily-digest.yml`，每天北京时间 13:00 自动抓取 HN + RSS AI 热点，以 GitHub Issue 形式推送（标签 `ai-digest`）；脚本见 `.github/scripts/fetch_ai_news.py`
 
 ## 持续跟踪目标
 

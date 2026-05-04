@@ -51,7 +51,7 @@ AI_KEYWORDS = {
     "llm", "gpt", "claude", "gemini", "openai", "anthropic", "mistral",
     "transformer", "neural", "diffusion", "chatgpt", "copilot", "model",
     "agent", "rag", "embedding", "inference", "benchmark", "multimodal",
-    "generative", "hallucination", "fine-tun", "lora", "sora", "robotics",
+    "generative", "hallucination", "fine-tune", "lora", "sora", "robotics",
 }
 
 # ── 工具函数 ──────────────────────────────────────────────────────────────────
@@ -132,7 +132,7 @@ def fetch_rss(feed: dict) -> list[dict]:
         print(f"  RSS parse failed ({name}): {e}")
         return []
 
-    ns = {}
+    ns = {"atom": "http://www.w3.org/2005/Atom"}
     # Atom or RSS?
     items = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
@@ -209,7 +209,6 @@ def build_body(hn_stories: list[dict], rss_items: list[dict]) -> str:
     return "\n".join(lines)
 
 def create_issue(title: str, body: str) -> None:
-    import urllib.request
     payload = json.dumps({"title": title, "body": body, "labels": ["ai-digest"]}).encode()
     url = f"https://api.github.com/repos/{GITHUB_REPO}/issues"
     req = Request(
